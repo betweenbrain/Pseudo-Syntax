@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="2.5" type="plugin" group="content" method="upgrade">
+	<name>Pseudo Syntax</name>
+		<version>1.0</version>
+		<creationDate>February 11, 2013</creationDate>
+		<author>Matt Thomas</author>
+		<authorEmail>matt@betweenbrain.com</authorEmail>
+		<authorUrl>http://betweenbrain.com</authorUrl>
+		<copyright>Copyright (C) 2013 Matt Thomas. All rights reserved.</copyright>
+		<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+		<description>A Joomla content plugin to support HTML-like syntax.</description>
+	<files>
+		<filename plugin="pseudosyntax">pseudosyntax.php</filename>
+	</files>
+</install>
