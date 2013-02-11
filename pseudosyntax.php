@@ -13,11 +13,22 @@
 
 jimport('joomla.plugin.plugin');
 
-class plgContentPseudosyntax extends JPlugin {
-	function onPrepareContent(&$article, &$params, $limitstart) {
-		$article->title = str_replace(
+class plgSystemPseudosyntax extends JPlugin {
+	function onAfterRender() {
+		$app = JFactory::getApplication();
+
+		if ($app->isAdmin()) {
+			return TRUE;
+		}
+
+		$buffer = JResponse::getBody();
+
+		$buffer = str_replace(
 			array('{i}', '{/i}', '{em}', '{/em}', '{strong}', '{/strong}', '{small}', '{/small}'),
 			array('<i>', '</i>', '<em>', '</em>', '<strong>', '</strong>', '<small>', '</small>'),
-		$article->title);
+			$buffer);
+		JResponse::setBody($buffer);
+
+		return TRUE;
 	}
 }
