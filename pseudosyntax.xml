@@ -8,7 +8,7 @@
 		<authorUrl>http://betweenbrain.com</authorUrl>
 		<copyright>Copyright (C) 2013 Matt Thomas. All rights reserved.</copyright>
 		<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-		<description>A Joomla content plugin to support HTML-like syntax.</description>
+		<description>A Joomla content plugin to support HTML-like syntax for a limited number of text-level markup.</description>
 	<files>
 		<filename plugin="pseudosyntax">pseudosyntax.php</filename>
 	</files>

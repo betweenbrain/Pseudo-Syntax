@@ -15,6 +15,9 @@ jimport('joomla.plugin.plugin');
 
 class plgContentPseudosyntax extends JPlugin {
 	function onPrepareContent(&$article, &$params, $limitstart) {
-		$article->title = str_replace(array('{i}', '{/i}'), array('<i>', '</i>'), $article->title);
+		$article->title = str_replace(
+			array('{i}', '{/i}', '{em}', '{/em}', '{strong}', '{/strong}', '{small}', '{/small}'),
+			array('<i>', '</i>', '<em>', '</em>', '<strong>', '</strong>', '<small>', '</small>'),
+		$article->title);
 	}
 }
