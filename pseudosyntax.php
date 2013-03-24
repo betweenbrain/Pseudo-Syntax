@@ -24,8 +24,8 @@ class plgSystemPseudosyntax extends JPlugin {
 		$buffer = JResponse::getBody();
 
 		$buffer = str_replace(
-			array('{i}', '{/i}', '{em}', '{/em}', '{strong}', '{/strong}', '{small}', '{/small}'),
-			array('<i>', '</i>', '<em>', '</em>', '<strong>', '</strong>', '<small>', '</small>'),
+			array('{i}', '{/i}', '{em}', '{/em}', '{strong}', '{/strong}', '{small}', '{/small}', '{br}'),
+			array('<i>', '</i>', '<em>', '</em>', '<strong>', '</strong>', '<small>', '</small>', '<br>'),
 			$buffer);
 		JResponse::setBody($buffer);
 
