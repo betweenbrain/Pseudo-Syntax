@@ -23,10 +23,18 @@ class plgSystemPseudosyntax extends JPlugin {
 
 		$buffer = JResponse::getBody();
 
-		$buffer = str_replace(
-			array('{i}', '{/i}', '{em}', '{/em}', '{strong}', '{/strong}', '{small}', '{/small}', '{br}'),
-			array('<i>', '</i>', '<em>', '</em>', '<strong>', '</strong>', '<small>', '</small>', '<br>'),
-			$buffer);
+		$pseudoTags = array('{i}', '{/i}', '{em}', '{/em}', '{strong}', '{/strong}', '{small}', '{/small}', '{br}');
+		$realTags   = array('<i>', '</i>', '<em>', '</em>', '<strong>', '</strong>', '<small>', '</small>', '<br>');
+
+		// Convert pseudo tags to real HTML tags
+		$buffer = str_replace($pseudoTags, $realTags, $buffer);
+
+		// Match title tag
+		preg_match('/<title>(.*?)<\/title>/i', $buffer, $matches);
+
+		// Sanitize title tag
+		$buffer = str_replace($matches[0], '<title>' . str_replace($realTags, '', $matches[1]) . '</title>', $buffer);
+
 		JResponse::setBody($buffer);
 
 		return TRUE;
