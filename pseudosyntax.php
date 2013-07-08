@@ -15,9 +15,10 @@ jimport('joomla.plugin.plugin');
 
 class plgSystemPseudosyntax extends JPlugin {
 	function onAfterRender() {
-		$app = JFactory::getApplication();
+		$app    = JFactory::getApplication();
+		$layout = JRequest::getVar('layout');
 
-		if ($app->isAdmin()) {
+		if ($app->isAdmin() || $layout == "edit") {
 			return TRUE;
 		}
 
